@@ -11,12 +11,15 @@
     </div>
 
 
-    <script>
-        let h1 = document.createElement("h1");
-        h1.innerText = "Starting React from JS";
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-        let main = document.getElementById("main");
-        main.appendChild(h1);
-    </script>
+<script>
+    const heading = React.createElement("h1", {}, "Hello React");
+
+    const root = ReactDOM.createRoot(document.getElementById("main"));
+
+    root.render(heading);
+</script>
 </body>
 </html>

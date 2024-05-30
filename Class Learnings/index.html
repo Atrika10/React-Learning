@@ -6,8 +6,17 @@
     <title>React Learning</title>
 </head>
 <body>
-    <div class="main">
-        <h1>Starting React</h1>
+    <div id="main">
+        
     </div>
+
+
+    <script>
+        let h1 = document.createElement("h1");
+        h1.innerText = "Starting React from JS";
+
+        let main = document.getElementById("main");
+        main.appendChild(h1);
+    </script>
 </body>
 </html>

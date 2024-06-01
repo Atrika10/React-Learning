@@ -12,7 +12,8 @@
 */
 
 /* code in React */
-
+import React from "react";
+import ReactDOM from "react";
 const parent = React.createElement("div", { id: "parent" }, 
     [
         React.createElement("div", { id: "child" }, 

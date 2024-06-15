@@ -16,3 +16,41 @@ Go to tailwind official website -> choose your framework -> follow given steps
 configured tailwind.config.js
 
 Now we can use tailwind in our project
+
+## Features
+
+## Setup React Router
+
+Docs : https://reactrouter.com/en/main/start/tutorial
+
+1> npm i react-router-dom
+
+2> Go to body.jsx (your main file)
+
+3> `import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";`
+
+4> setup router using createBrowserRouter inside main function
+
+Ex : `
+   
+   const router = createBrowserRouter(
+ 
+    [
+    {
+      path : "/",
+      element : <Login/>,
+    },
+    {
+      path : "/browse",
+      element : <Browse/>
+    }]
+    )
+    
+`
+
+5 > Add RouterProvider inside return
+
+` <RouterProvider router={appRouter}/> `

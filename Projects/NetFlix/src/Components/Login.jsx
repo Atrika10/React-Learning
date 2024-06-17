@@ -1,11 +1,25 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Header from './Header'
+import { validateData } from '../Utils/Validate';
+
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);     // opposite value will be set 
+  }
+
+  //references of those input boxes
+  const email = useRef(null);
+  const password = useRef(null);
+
+  const handleBtnClick = (e) =>{
+    
+    // validateData(email, password);
+    console.log(email.current.value);
+    console.log(password.current.value);
+
   }
 
   return (
@@ -19,7 +33,7 @@ const Login = () => {
 
         <div className='w-1/3 bg-black opacity-80 flex justify-center items-center absolute top-32 left-1/3'>
 
-          <form className='w-2/3 flex flex-col gap-5 pt-14 pb-14 '>
+          <form onSubmit={(e) =>{e.preventDefault()}} className='w-2/3 flex flex-col gap-5 pt-14 pb-14 '>
 
             <div className='text-white font-bold text-3xl mb-4'>
 
@@ -30,10 +44,11 @@ const Login = () => {
             {!isSignInForm &&
               <input type="text" name="name" placeholder='Enter your Full name' className='p-4 w-full  border text-lg bg-transparent rounded-lg text-white' />}
 
-            <input type="email" name="email" placeholder='Enter your Email' className='p-4 w-full  border text-lg bg-transparent rounded-lg text-white' />
-            <input type="password" name="password" placeholder='Enter your Password' className='p-4 w-full bg-transparent border text-lg rounded-lg text-white' />
+            <input ref={email} type="email" name="email" placeholder='Enter your Email' className='p-4 w-full  border text-lg bg-transparent rounded-lg text-white' />
+
+            <input ref={password} type="password" name="password" placeholder='Enter your Password' className='p-4 w-full bg-transparent border text-lg rounded-lg text-white' />
             
-            <button className='text-white bg-[#FF0000] font-bold text-xl p-2 rounded-lg'>
+            <button onClick={handleBtnClick} className='text-white bg-[#FF0000] font-bold text-xl p-2 rounded-lg'>
                {isSignInForm ? "Sign In" : "Sign Up"} </button>
 
             <div

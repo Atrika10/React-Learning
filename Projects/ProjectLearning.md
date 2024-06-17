@@ -54,3 +54,19 @@ Ex : `
 5 > Add RouterProvider inside return
 
 ` <RouterProvider router={appRouter}/> `
+
+### Convert Sign in form to Sign up form using Usestate hook
+
+### How do you write validation inside forms
+to validate the data, first we have to get the data.
+How will we get ?
+using useRef hook which will refer to those input boxes.
+
+Ex : 
+1. `const email = useRef(null)`
+initial value null
+2. in the input box from where we extract the data, write
+ 
+    `ref={email}`
+
+* Note : to stop preventing the loading use `preventDefault()` method inside form as we didn't write any onSubmit method.

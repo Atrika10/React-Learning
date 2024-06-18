@@ -16,9 +16,12 @@ const Login = () => {
 
   const handleBtnClick = (e) =>{
     
-    // validateData(email, password);
+  
     console.log(email.current.value);
     console.log(password.current.value);
+
+    const message =  validateData(email.current.value, password.current.value);
+    console.log(message);
 
   }
 

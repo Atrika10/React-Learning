@@ -67,6 +67,7 @@ const Login = () => {
             className='p-4 w-full bg-transparent border text-lg rounded-lg text-white' />
 
             <p className='text-red-600 font-bold'>{errorMessage}</p>
+            
             <button 
             onClick={handleBtnClick} 
             className='text-white bg-[#FF0000] font-bold text-xl p-2 rounded-lg'>

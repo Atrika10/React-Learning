@@ -60,7 +60,7 @@ Ex : `
 ### How do you write validation inside forms
 to validate the data, first we have to get the data.
 How will we get ?
-using useRef hook which will refer to those input boxes.
+using `useRef` hook which will refer to those input boxes.
 
 Ex : 
 1. `const email = useRef(null)`
@@ -70,3 +70,42 @@ initial value null
     `ref={email}`
 
 * Note : to stop preventing the loading use `preventDefault()` method inside form as we didn't write any onSubmit method.
+
+
+## Authentication
+
+To Authenticate we need a backend, to build this project we'll be using firebase.
+* Go to Firebase website
+* create a project -> register your app
+* To add firebase sdk
+  * npm install firebase
+  * write firebase configuration to connect to your database (Steps will be there)
+
+* Enable Authentication inside firebase app
+  * Get Started
+  * choose sign-in provider
+  * like I allow you my user to registered themselfs using email & password do I enable that option.
+  * Now I can registered my users & it'll be showing inside users tab
+
+
+## How to deploy a web app to Firebase
+
+ * install firebase CLI using `npm install -g firebase-tools`  [ This command enables the globally available firebase command.]
+
+ * `npm install firebase`
+ 
+ * `firebase login`
+
+    - if it is restrict you, then open your powershell (run as administrator)
+      - Set-ExecutionPolicy RemoteSigned (as initially your ExecutionPolicy is Restricted, now it'll be RemoteSigned)
+  * `firebase init`
+  
+    - it will ask you some question to setup your project
+     * NOTE : use `build` as your public directory if you are using `CRA`
+     * NOTE : use `dist` as your public directory if you are using `react+vite`
+
+* Before deploy our project, add `"predeploy" : ["npm run build"]` in firebase.json
+  - `npm run build`   [ will run before deployment ]
+
+* Finally run last step
+  - `firebase deploy`

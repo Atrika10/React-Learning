@@ -55,6 +55,8 @@ Ex : `
 
 ` <RouterProvider router={appRouter}/> `
 
+#
+
 ### Convert Sign in form to Sign up form using Usestate hook
 
 ### How do you write validation inside forms
@@ -87,6 +89,16 @@ To Authenticate we need a backend, to build this project we'll be using firebase
   * like I allow you my user to registered themselfs using email & password do I enable that option.
   * Now I can registered my users & it'll be showing inside users tab
 
+### Let Us sign up our first user with firebase
+
+- first validate email, password
+- if, email & password is valid then proceed further else return
+- for valid email & password
+  - check is it sign up form or sign in form, write logic based on that
+- Go to firebase documentation
+  - search Authentication -> web
+
+* Note : As `getAuth()`is an API which is gonna use almost every api call, so make it in a centralize way. & import from that file where you want.
 
 ## How to deploy a web app to Firebase
 

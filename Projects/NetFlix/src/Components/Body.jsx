@@ -24,8 +24,8 @@ const Body = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {         // if user is signed in/ signed up => user will be added to the store
-        const {uid, email, displayName} = user;
-        dispatch(addUser({uid:uid, email:email, displayName:displayName}));
+        const {uid, email, displayName, photoURL} = user;
+        dispatch(addUser({uid:uid, email:email, displayName:displayName, photoURL : photoURL}));
 
           // redirect to the browse page after signin/signup (it is handled from Login page)
 

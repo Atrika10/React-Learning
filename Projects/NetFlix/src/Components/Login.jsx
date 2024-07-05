@@ -8,11 +8,14 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { addUser } from "../slices/userSlice";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null); // to show the error msg if it is not validate
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm); // opposite value will be set
@@ -48,7 +51,17 @@ const Login = () => {
             photoURL: "https://avatars.githubusercontent.com/u/96716134?v=4",
           })
             .then(() => {
-              //once my Profile updated! then navigate
+              // once profile updated, then dispatch addUser to the store and navigate to the browse page
+              const { uid, email, displayName, photoURL } = auth.currentUser; //we can't use 'user' here because it is not updated yet that's why we are using auth.currentUser as it is updated
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+              
               console.log(user);
               navigate("/browse"); // redirect to the browse page after signup
             })

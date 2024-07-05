@@ -3,10 +3,12 @@ import Header from './Header'
 import { validateData } from '../Utils/Validate';
 import { auth } from '../Utils/Firebase';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);   // to show the error msg if it is not validate
+  const navigate = useNavigate();
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);     // opposite value will be set 
@@ -32,6 +34,7 @@ const Login = () => {
           // Signed up 
           const user = userCredential.user;
           console.log(user);
+          navigate('/browse');  // redirect to the browse page after signup
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -47,6 +50,7 @@ const Login = () => {
           // Signed in 
           const user = userCredential.user;
           console.log(user);
+          navigate('/browse');  // redirect to the browse page after signin
         })
         .catch((error) => {
           const errorCode = error.code;

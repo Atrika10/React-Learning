@@ -121,3 +121,20 @@ To Authenticate we need a backend, to build this project we'll be using firebase
 
 * Finally run last step
   - `firebase deploy`
+
+  #
+
+
+### Important API given by firebase onAuthStateChanged
+  - whenever we have to handle  sign in/ sign out user or anything related to authentication we can use this api rather than dispatching action again & again from different place.
+
+  Documentation : https://firebase.google.com/docs/auth/web/manage-users
+
+* use this api in root level (although you can use this anywhere you want to)
+
+* this api is kind of eventListener ;
+### How ?
+we want to call it once, so we will use inside `useEffect` hook.
+```
+
+```

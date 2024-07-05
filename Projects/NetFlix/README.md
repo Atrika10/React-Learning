@@ -11,5 +11,7 @@
 - firebase setup
 - Deployed our app to prouction
 - Create signup user account
+- created our redux store 
+    - userSlice
 
 ## Features

@@ -13,5 +13,8 @@
 - Create signup user account
 - created our redux store 
     - userSlice
+- Bug fix : user display name & photoURL
+- Bug fix : if the user is not logged in redirect user to '/' page
+            & redirect to '/browse' page if user logged in 
 
 ## Features

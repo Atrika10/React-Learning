@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SignOut from "./SignOut";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import store from "../store/store";
+import { onAuthStateChanged } from "firebase/auth";
+import { addUser, removeUser } from "../slices/userSlice";
+import { auth } from "../Utils/Firebase";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {         // if user is signed in/ signed up => user will be added to the store
+        const {uid, email, displayName, photoURL} = user;
+        dispatch(addUser({uid:uid, email:email, displayName:displayName, photoURL : photoURL}));
+
+          // redirect to the browse page after signin/signup (it is handled from Login page)
+          navigate("/browse");
+      } else {
+        dispatch(removeUser());
+          // redirect to the login page if user is not signed in/ signed up (it is handled from Login page)
+          navigate("/");
+      }
+    });
+  }, []);
+
+
   return (
     <div className=" flex justify-between">
       <div>

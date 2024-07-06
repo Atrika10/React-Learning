@@ -8,7 +8,7 @@ export default function SignOut() {
 
     const handleSignOut = () =>{
         signOut(auth).then(() => {
-            navigate('/');
+            // everything is handeled in Header.jsx inside useEffect hook in onAuthStateChanged
           }).catch((error) => {
             navigate('/error')
           });

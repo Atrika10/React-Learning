@@ -18,5 +18,7 @@
             & redirect to '/browse' page if user logged in 
 - Unsubscribe to the onAuthStateChange Callback  (good practice)
 - Adding constant File for hard coded value
+- Registered for tmdb & get access token
+- Get Data from tmdb now playing movies list
 
 ## Features

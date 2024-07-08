@@ -138,3 +138,20 @@ we want to call it once, so we will use inside `useEffect` hook.
 ```
 
 ```
+
+#
+
+* Note Just for practice
+### Adding Movie slice to the store
+- create a movie slice
+    - using `createSlice`
+- add the slice to the store
+    - by add movieSlice's reducer in store's reducer
+- dispatch action by passing the data into the store
+    - dispatch (actionName (data coming from api) )
+
+### Creating a custom hook
+- the name of the custom hook must have `use` in start
+  - ex : `useCustomHookName`
+- Now put it all the code inside 'useCustomHookName' function 
+- export default useCustomHookName;

@@ -20,5 +20,25 @@
 - Adding constant File for hard coded value
 - Registered for tmdb & get access token
 - Get Data from tmdb now playing movies list
+- created a custom hook and shifted NowPlayingMovies into that hook
+- Main Container & Video Title page created
 
 ## Features
+
+- Plan Browse Page
+- Browse page will be in 2 part    
+    - Main container
+        - Video Background
+            - Navbar
+            - Search
+            - notification
+        - Video Title
+            - play
+            - more info
+    - Secondary Container
+        - Movielist * n number
+            - Trending Now
+            - Now playing
+            - Released in past year
+            - Documentaries  etc
+        - MovieCard * n number

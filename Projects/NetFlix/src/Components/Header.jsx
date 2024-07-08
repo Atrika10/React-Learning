@@ -6,6 +6,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../slices/userSlice";
 import { auth } from "../Utils/Firebase";
 import { useNavigate } from "react-router-dom";
+import { LOGO } from "../Utils/Constant";
 
 const Header = () => {
   const user = useSelector((state) => state.user);
@@ -13,7 +14,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe =  onAuthStateChanged(auth, (user) => {
       if (user) {         // if user is signed in/ signed up => user will be added to the store
         const {uid, email, displayName, photoURL} = user;
         dispatch(addUser({uid:uid, email:email, displayName:displayName, photoURL : photoURL}));
@@ -26,6 +27,9 @@ const Header = () => {
           navigate("/");
       }
     });
+
+    // cleanup function; it will unsubscribe the user when the component is unmounted 
+    return () => unsubscribe();
   }, []);
 
 
@@ -34,7 +38,7 @@ const Header = () => {
       <div>
         <img
           className="absolute w-40 ml-28 mt-8 z-10"
-          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+          src= {LOGO}
           alt="logoImg"
         />
       </div>

@@ -16,5 +16,7 @@
 - Bug fix : user display name & photoURL
 - Bug fix : if the user is not logged in redirect user to '/' page
             & redirect to '/browse' page if user logged in 
+- Unsubscribe to the onAuthStateChange Callback  (good practice)
+- Adding constant File for hard coded value
 
 ## Features

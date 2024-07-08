@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import { addUser } from "../slices/userSlice";
 import { useDispatch } from "react-redux";
+import { MAIN_BACKGROUND, USER_AVATAR } from "../Utils/Constant";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -46,7 +47,7 @@ const Login = () => {
           // update user profile after creating an account
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/96716134?v=4",
+            photoURL: USER_AVATAR, // default avatar image
           })
             .then(() => {
               // once profile updated, then dispatch addUser to the store 
@@ -97,7 +98,7 @@ const Login = () => {
       <Header /> {/* contains logo */}
       <div className="relative w-full h-full">
         <img
-          src="https://techovedas.com/wp-content/uploads/2024/04/netflix-octobre-contenus-2022.jpg"
+          src= {MAIN_BACKGROUND}
           alt="backgroundImg"
         />
         <div className=" absolute inset-0 bg-black opacity-50"></div>

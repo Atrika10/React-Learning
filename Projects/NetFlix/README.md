@@ -29,6 +29,9 @@
 - Setup secondary container
 - created movielist & moviecard
 - displayed now playing movies horizontally with proper css
+- created more custom hook for top rated, popular & upcoming movies
+- update movie slice with new 3 action
+- rendered all categories movies in secondary container
 
 ## Features
 

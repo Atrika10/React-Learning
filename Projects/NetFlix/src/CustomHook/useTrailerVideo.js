@@ -14,18 +14,15 @@ const useTrailerVideo = (id) => {
         API_OPTIONS
       );
       const jsonData = await data.json();
-      console.log(jsonData);
   
       // Step -2 we need to filter out the trailer from the videos
       const filteredVideos = jsonData.results.filter(
         (video) => video.type === "Trailer"
       );
-      console.log(filteredVideos);
       // need only 1 video
       const trailer = filteredVideos.length
         ? filteredVideos[0]
         : jsonData.results[0]; // if no trailer then select the first video
-      console.log(trailer);
   
       // step -3 add trailer to store
       dispatch(addTrailerVideo(trailer))  

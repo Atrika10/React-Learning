@@ -34,23 +34,26 @@ const Header = () => {
 
 
   return (
-    <div className=" flex justify-between">
+    <div> 
+    <div className=" flex justify-between absolute w-full">
       <div>
         <img
-          className="absolute w-40 ml-28 mt-8 z-10"
+          className="relative w-40 ml-28 mt-8 z-10"
           src= {LOGO}
           alt="logoImg"
         />
       </div>
 
-      {user && <div className="mt-8 mr-28 font-bold flex gap-2">
-        <div>
+      {user && <div className="relative mt-8 mr-28 font-bold flex gap-2 z-10">
+        <div >
           <img className="w-11 rounded-lg" src={user.photoURL} alt="" />
         </div>
         <SignOut />
       </div>}
 
     </div>
+    </div>
+    
   );
 };
 

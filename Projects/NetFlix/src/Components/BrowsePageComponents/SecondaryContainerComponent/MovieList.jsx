@@ -3,7 +3,7 @@ import MovieCard from './MovieCard'
 
 export default function MovieList({title, movies}) {
   return (
-    <div className='bg-black text-white pl-14'>
+    <div className=' text-white pl-14'>
         <h1 className='text-3xl py-5'>{title}</h1>
         <div className='flex overflow-x-scroll '>
             <div className='flex'>

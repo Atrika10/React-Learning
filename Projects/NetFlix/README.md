@@ -25,6 +25,10 @@
 - VideoBack Ground page is created by fetching videos API
     - extracting key & then get youtube video accordingly
 - add trailer into the store
+- Complete css of main container
+- Setup secondary container
+- created movielist & moviecard
+- displayed now playing movies horizontally with proper css
 
 ## Features
 

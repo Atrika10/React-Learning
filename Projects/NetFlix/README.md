@@ -22,6 +22,9 @@
 - Get Data from tmdb now playing movies list
 - created a custom hook and shifted NowPlayingMovies into that hook
 - Main Container & Video Title page created
+- VideoBack Ground page is created by fetching videos API
+    - extracting key & then get youtube video accordingly
+- add trailer into the store
 
 ## Features
 

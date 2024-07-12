@@ -34,7 +34,8 @@
 - rendered all categories movies in secondary container
 - search page for getting movie recommended from chatgpt
 - created new slice for gptSearch
-- 
+- Added multi language support in gpt search page
+- created new slice for app configurations (for lang, theme etc)
 
 ## Features
 
@@ -58,3 +59,4 @@
 - Search page for getting result from open AI gpt api
     - a search button will help us to redirect to that page
 
+#### Note : create a config slice which will contain some app level configuration like language prefarence, theme - dark theme, light theme, user pref etc

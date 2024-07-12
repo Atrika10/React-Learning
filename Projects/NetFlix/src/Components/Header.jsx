@@ -8,9 +8,13 @@ import { auth } from "../Utils/Firebase";
 import { useNavigate } from "react-router-dom";
 import { LOGO } from "../Utils/Constant";
 import { toggleGptSearch } from "../slices/gptSlice";
+import { LANGUAGE_SUPPORT } from "../Utils/Constant";
+import { chnageLanguage } from "../slices/configSlice";
 
 const Header = () => {
   const user = useSelector((state) => state.user);
+  const isGptSearchOpen = useSelector((state) => state.gpt.isGptSearchOpen);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -45,6 +49,11 @@ const Header = () => {
     dispatch(toggleGptSearch());
   }
 
+  const handleLanguage = (e) =>{
+    console.log(e.target.value);
+    dispatch(chnageLanguage(e.target.value ));
+  }
+
   return (
     <div>
       <div className=" flex justify-between absolute w-full">
@@ -58,11 +67,25 @@ const Header = () => {
 
         {user && (
           <div className="relative mt-8 mr-28 font-bold flex gap-2 z-10">
+            {/* if we are in GPT search page then we will show the language dropdown */}
+            {isGptSearchOpen && 
+             <select 
+             className="bg-[#1a1a1a] text-white px-3 py-2 rounded-md tracking-wide"
+             onChange={handleLanguage}>
+              {LANGUAGE_SUPPORT.map((lang) => (
+                <option key={lang.identifire} value={lang.identifire}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>}
+           
+
             <div>
               <button onClick={handleGptSearch}
               className="bg-rose-500 text-white px-5 py-2 rounded-md tracking-wide">
                 {" "}
-                 GPT Search
+                {isGptSearchOpen ? "Home Page" : "GPT Search"}
+                 
               </button>
             </div>
             <div>

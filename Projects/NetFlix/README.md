@@ -32,6 +32,9 @@
 - created more custom hook for top rated, popular & upcoming movies
 - update movie slice with new 3 action
 - rendered all categories movies in secondary container
+- search page for getting movie recommended from chatgpt
+- created new slice for gptSearch
+- 
 
 ## Features
 
@@ -52,3 +55,6 @@
             - Released in past year
             - Documentaries  etc
         - MovieCard * n number
+- Search page for getting result from open AI gpt api
+    - a search button will help us to redirect to that page
+

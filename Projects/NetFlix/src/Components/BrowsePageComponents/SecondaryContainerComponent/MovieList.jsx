@@ -11,8 +11,6 @@ export default function MovieList({title, movies}) {
                 {movies && movies.map((movie)=>(
                     <MovieCard key={movie.id} poster_path={movie.poster_path}/>
                 ))} 
-                
-                
                 {/* <MovieCard poster_path={movies[0].poster_path}/> */}
             </div>
         </div>

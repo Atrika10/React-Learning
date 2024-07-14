@@ -1,11 +1,23 @@
 import React, { useRef } from "react";
 import lang from "../../Utils/LanguageConstant";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import getResultFromGemini from "../../Utils/GeminiApi";
+import { setGptMovies, setTmdbMovies } from "../../slices/gptSlice";
+import { API_OPTIONS } from "../../Utils/Constant";
 
 export default function GptSearchInputBar() {
+  const dispatch = useDispatch();
+
   const searchText = useRef(null);   // to get the value of the input field
   const languagePreference = useSelector((state) => state.config.language);
+
+  const getSearchMoviesFromTMDB = async (movie) => {
+    const movieData = await fetch(`https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=en-US&page=1`, API_OPTIONS);
+    const movieJson = await movieData.json();
+    //console.log(movieJson);
+    return movieJson;
+  };
+    
 
   const handleGPTSearchClick = async () =>{
     console.log(searchText.current.value);
@@ -13,7 +25,19 @@ export default function GptSearchInputBar() {
 
     const gptQuery = `Act as a movie recommendation system & suggest some movies for the query : ${searchText.current.value}. only give me 5 movies, comma seperated like the example result given ahead. Example resul : koi mil gaya, kabhi khusi kabhi gaam, projapoti, titanic, avatar`;
 
-    getResultFromGemini(gptQuery);  // calling the function to get the result from the gemini api
+    const gptMovies = await getResultFromGemini(gptQuery);  // calling the function to get the result from the gemini api
+    
+    // convert gptMovies to array & store it in the redux store
+    const gptMoviesArray = gptMovies.split(',');
+    dispatch(setGptMovies(gptMoviesArray));
+    
+    // call the tmdb api to get the movie details for each of the movie in the gptMoviesArray
+    const tmdbMoviesPromises = gptMoviesArray.map((movie) => getSearchMoviesFromTMDB(movie)); // this will return an array of promises because map function will not wait for the promises to resolve
+
+    // so we need to wait for all the promises to resolve
+    const tmdSearchedMovies = await Promise.all(tmdbMoviesPromises);
+   console.log(tmdSearchedMovies);
+   dispatch(setTmdbMovies(tmdSearchedMovies));
     
   }
 

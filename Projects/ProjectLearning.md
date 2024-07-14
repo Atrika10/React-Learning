@@ -155,3 +155,10 @@ we want to call it once, so we will use inside `useEffect` hook.
   - ex : `useCustomHookName`
 - Now put it all the code inside 'useCustomHookName' function 
 - export default useCustomHookName;
+
+
+### Memoization of data in our applications
+Every time the component load, hook are called & store is updated.
+If I have data in my store, I should not update the store again -> This concept is known as memoization ;
+we are stopping api call again & again when page loaded
+we will check if we have data already in my store, we will not make an api call.

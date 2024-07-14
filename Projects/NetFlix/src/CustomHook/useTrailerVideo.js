@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const useTrailerVideo = (id) => {
     const dispatch = useDispatch();
-    
+    const trailerVideo = useSelector((store) => store.movies.trailerVideo);
     
     // Step-1 fetch trailer of the movie
     const getMovieVideos = async () => {
@@ -29,7 +29,9 @@ const useTrailerVideo = (id) => {
     };
   
     useEffect(() => {
-      getMovieVideos();
+      // memoization to prevent multiple API calls
+      {!trailerVideo && getMovieVideos()}
+      
     }, []);
 }
 

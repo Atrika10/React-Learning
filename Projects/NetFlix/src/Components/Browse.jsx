@@ -7,6 +7,7 @@ import MainContainer from './BrowsePageComponents/MainContainer';
 import SecondaryContainer from './BrowsePageComponents/SecondaryContainer';
 import GptSearch from './GptComponents/GptSearch';
 import Header from './Header'
+import Footer from './Footer';
 
 
 const Browse = () => {
@@ -26,6 +27,7 @@ const Browse = () => {
         <>
            <MainContainer/>
            <SecondaryContainer/>
+           <Footer/>
         </>
       }
      

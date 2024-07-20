@@ -20,7 +20,7 @@ export default function GptSearchInputBar() {
     
 
   const handleGPTSearchClick = async () =>{
-    console.log(searchText.current.value);
+    // console.log(searchText.current.value);
     // make an api call to get the search result from the GPT-3
 
     const gptQuery = `Act as a movie recommendation system & suggest some movies for the query : ${searchText.current.value}. only give me 5 movies, comma seperated like the example result given ahead. Example resul : koi mil gaya, kabhi khusi kabhi gaam, projapoti, titanic, avatar`;
@@ -36,7 +36,7 @@ export default function GptSearchInputBar() {
 
     // so we need to wait for all the promises to resolve
     const tmdSearchedMovies = await Promise.all(tmdbMoviesPromises);
-   console.log(tmdSearchedMovies);
+   // console.log(tmdSearchedMovies);
    dispatch(setTmdbMovies(tmdSearchedMovies));
     
   }
